@@ -1,0 +1,39 @@
+# Dependencies
+node_modules
+
+# Environment variables - Keep out of version control
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build output
+dist
+build
+*.tsbuildinfo
+
+# Prisma
+/generated/prisma
+prisma/migrations/.migration_lock
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Uploads/user-generated content (if applicable)
+uploads/
+temp/
+
+# Cache
+.cache

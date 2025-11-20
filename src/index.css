@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 15% 9%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 12% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 12% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 193 95% 58%;
+    --primary-foreground: 240 15% 9%;
+
+    --secondary: 264 70% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 8% 20%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 16 90% 65%;
+    --accent-foreground: 240 15% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 240 8% 20%;
+    --input: 240 8% 20%;
+    --ring: 193 95% 58%;
+
+    --radius: 1rem;
+    
+    /* Glassmorphism */
+    --glass-bg: 240 12% 12% / 0.6;
+    --glass-border: 210 40% 98% / 0.1;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(193 95% 58%) 0%, hsl(264 70% 60%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(240 15% 9%) 0%, hsl(240 20% 15%) 50%, hsl(240 15% 9%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(16 90% 65%) 0%, hsl(193 95% 58%) 100%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(193 95% 58% / 0.3);
+    --shadow-elegant: 0 20px 60px hsl(240 15% 9% / 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

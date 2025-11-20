@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id            String    @id @default(uuid())
+  email         String    @unique
+  password_hash String
+  role          String    // PASSENGER, DRIVER, MECHANIC
+  name          String
+  phone         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  ridesAsPassenger Ride[] @relation("PassengerRides")
+  ridesAsDriver    Ride[] @relation("DriverRides")
+  
+  serviceRequests  ServiceRequest[] @relation("UserRequests")
+  mechanicServices ServiceRequest[] @relation("MechanicServices")
+
+  driverProfile    DriverProfile?
+  mechanicProfile  MechanicProfile?
+}
+
+model DriverProfile {
+  id              String  @id @default(uuid())
+  userId          String  @unique
+  user            User    @relation(fields: [userId], references: [id])
+  vehicleDetails  String
+  licenseNumber   String
+  currentLocation String?
+  isAvailable     Boolean @default(true)
+}
+
+model MechanicProfile {
+  id              String  @id @default(uuid())
+  userId          String  @unique
+  user            User    @relation(fields: [userId], references: [id])
+  shopName        String?
+  servicesOffered String
+  location        String?
+  isAvailable     Boolean @default(true)
+}
+
+model Ride {
+  id            String     @id @default(uuid())
+  passengerId   String
+  passenger     User       @relation("PassengerRides", fields: [passengerId], references: [id])
+  driverId      String?
+  driver        User?      @relation("DriverRides", fields: [driverId], references: [id])
+  pickup        String
+  dropoff       String
+  type          String     // Economy, Premium, SUV
+  status        String     @default("PENDING") // PENDING, ACCEPTED, STARTED, COMPLETED, CANCELLED
+  scheduledTime DateTime?
+  price         Float?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+}
+
+model ServiceRequest {
+  id          String        @id @default(uuid())
+  userId      String
+  user        User          @relation("UserRequests", fields: [userId], references: [id])
+  mechanicId  String?
+  mechanic    User?         @relation("MechanicServices", fields: [mechanicId], references: [id])
+  location    String
+  vehicleType String
+  description String
+  status      String        @default("PENDING") // PENDING, ACCEPTED, IN_PROGRESS, COMPLETED, CANCELLED
+  photos      String?       // Store as JSON string or comma separated
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
