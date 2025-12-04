@@ -28,7 +28,7 @@ const Navbar = () => {
             <div className="p-2 rounded-lg bg-gradient-primary">
               <Car className="w-6 h-6 text-primary-foreground" />
             </div>
-            <span className="text-xl font-bold">BrightBooking</span>
+            <span className="text-xl font-bold">RIDECARE</span>
           </Link>
 
           {/* Desktop Navigation */}

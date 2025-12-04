@@ -33,7 +33,7 @@ const About = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="mb-12 animate-slide-up text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-              About BrightBooking
+              About RIDECARE
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Revolutionizing transportation and vehicle services with technology and trust
@@ -43,13 +43,13 @@ const About = () => {
           <Card className="p-12 bg-card/40 backdrop-blur-glass border-white/10 mb-12">
             <h2 className="text-3xl font-bold mb-6 text-foreground">Our Mission</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              At BrightBooking, we believe that getting from point A to point B, or finding help when your vehicle breaks down, 
-              should be simple, safe, and reliable. We've created a platform that connects passengers with drivers and mechanics 
+              At RIDECARE, we believe that getting from point A to point B, or finding help when your vehicle breaks down,
+              should be simple, safe, and reliable. We've created a platform that connects passengers with drivers and mechanics
               with just a few taps.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Our mission is to provide seamless transportation solutions while ensuring the highest standards of safety, 
-              reliability, and customer satisfaction. Whether you need a ride across town or emergency vehicle assistance, 
+              Our mission is to provide seamless transportation solutions while ensuring the highest standards of safety,
+              reliability, and customer satisfaction. Whether you need a ride across town or emergency vehicle assistance,
               we're here 24/7 to help.
             </p>
           </Card>

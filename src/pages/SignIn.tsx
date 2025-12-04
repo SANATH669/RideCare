@@ -26,7 +26,16 @@ const SignIn = () => {
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
       toast.success("Logged in successfully!");
-      navigate("/dashboard");
+
+      // Redirect based on user role
+      const userRole = response.data.user.role;
+      if (userRole === "DRIVER") {
+        navigate("/driver-dashboard");
+      } else if (userRole === "MECHANIC") {
+        navigate("/mechanic-dashboard");
+      } else {
+        navigate("/dashboard");
+      }
     } catch (error: any) {
       toast.error(error.response?.data?.message || "Login failed");
     }
@@ -163,7 +172,7 @@ const SignIn = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 animate-slide-up">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-              Welcome to BrightBooking
+              Welcome to RIDECARE
             </h1>
             <p className="text-xl text-muted-foreground">
               Select your role to continue

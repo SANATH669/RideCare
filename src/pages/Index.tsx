@@ -41,18 +41,18 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-hero">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src={heroImage} 
-            alt="Hero background" 
+          <img
+            src={heroImage}
+            alt="Hero background"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-hero/80" />
         </div>
-        
+
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-slide-up">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
@@ -83,12 +83,12 @@ const Index = () => {
       <section className="py-20 px-4 bg-background/50">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-foreground">
-            Why Choose BrightBooking?
+            Why Choose RIDECARE?
           </h2>
           <p className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto">
             Experience seamless transportation and vehicle services all in one place
           </p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <div
@@ -114,7 +114,7 @@ const Index = () => {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Join thousands of users who trust BrightBooking for their daily transportation needs
+              Join thousands of users who trust RIDECARE for their daily transportation needs
             </p>
             <Link to="/signin">
               <Button variant="hero" size="lg">
@@ -128,7 +128,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-white/10">
         <div className="container mx-auto text-center text-muted-foreground">
-          <p>&copy; 2024 BrightBooking. All rights reserved.</p>
+          <p>&copy; 2024 RIDECARE. All rights reserved.</p>
         </div>
       </footer>
     </div>

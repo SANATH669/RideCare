@@ -9,6 +9,8 @@ import BookRide from "./pages/BookRide";
 import SignUp from "./pages/SignUp";
 import FindMechanic from "./pages/FindMechanic";
 import Dashboard from "./pages/Dashboard";
+import DriverDashboard from "./pages/DriverDashboard";
+import MechanicDashboard from "./pages/MechanicDashboard";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -27,6 +29,8 @@ const App = () => (
           <Route path="/book-ride" element={<BookRide />} />
           <Route path="/find-mechanic" element={<FindMechanic />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/driver-dashboard" element={<DriverDashboard />} />
+          <Route path="/mechanic-dashboard" element={<MechanicDashboard />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup/:role" element={<SignUp />} />

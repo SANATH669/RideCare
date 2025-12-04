@@ -4,19 +4,20 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 export const createRide = async (req: any, res: Response) => {
-    const { pickup, dropoff, type, scheduledTime, price } = req.body;
+    const { pickup, dropoff, type, scheduledTime, price, driverId } = req.body;
     const passengerId = req.user.id;
 
     try {
         const ride = await prisma.ride.create({
             data: {
                 passengerId,
+                driverId: driverId || null,
                 pickup,
                 dropoff,
                 type,
                 scheduledTime: scheduledTime ? new Date(scheduledTime) : null,
                 price: price || 0,
-                status: 'PENDING',
+                status: driverId ? 'ACCEPTED' : 'PENDING',
             },
         });
         res.status(201).json(ride);

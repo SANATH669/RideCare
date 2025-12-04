@@ -36,7 +36,7 @@ const Dashboard = () => {
   const stats = [
     { label: "Total Rides", value: rides.length.toString(), icon: Car, color: "text-primary" },
     { label: "Service Requests", value: requests.length.toString(), icon: Wrench, color: "text-accent" },
-    { label: "Total Spent", value: "$0", icon: TrendingUp, color: "text-secondary" }, // Placeholder
+    { label: "Total Spent", value: "₹0", icon: TrendingUp, color: "text-secondary" }, // Placeholder
     { label: "Saved Time", value: "0h", icon: Clock, color: "text-accent" }, // Placeholder
   ];
 

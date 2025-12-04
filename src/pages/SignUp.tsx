@@ -170,6 +170,19 @@ const SignUp = () => {
                                             placeholder="Tire change, Oil change, etc."
                                         />
                                     </div>
+                                    <div>
+                                        <label className="block text-sm font-medium mb-2 text-foreground">
+                                            Location
+                                        </label>
+                                        <input
+                                            name="location"
+                                            type="text"
+                                            required
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                                            placeholder="Enter your shop or service location"
+                                        />
+                                    </div>
                                 </>
                             )}
 

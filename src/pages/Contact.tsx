@@ -8,8 +8,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      content: "support@brightbooking.com",
-      link: "mailto:support@brightbooking.com",
+      content: "support@ridecare.com",
+      link: "mailto:support@ridecare.com",
     },
     {
       icon: Phone,

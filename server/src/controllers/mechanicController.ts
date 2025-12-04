@@ -59,6 +59,44 @@ export const getNearbyRequests = async (req: any, res: Response) => {
     }
 };
 
+export const getAvailableMechanics = async (req: any, res: Response) => {
+    const { location } = req.query;
+
+    try {
+        const mechanics = await prisma.user.findMany({
+            where: {
+                role: 'MECHANIC',
+                mechanicProfile: {
+                    isAvailable: true,
+                    ...(location ? {
+                        location: {
+                            contains: location as string,
+                        }
+                    } : {})
+                },
+            },
+            select: {
+                id: true,
+                name: true,
+                phone: true,
+                mechanicProfile: {
+                    select: {
+                        shopName: true,
+                        servicesOffered: true,
+                        location: true,
+                        isAvailable: true,
+                    },
+                },
+            },
+        });
+
+        res.json(mechanics);
+    } catch (error) {
+        console.error('Error fetching available mechanics:', error);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
 export const updateRequestStatus = async (req: any, res: Response) => {
     const { id } = req.params;
     const { status } = req.body;
