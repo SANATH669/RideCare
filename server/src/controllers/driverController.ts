@@ -28,6 +28,7 @@ export const getAvailableDrivers = async (req: any, res: Response) => {
                         vehicleDetails: true,
                         licenseNumber: true,
                         currentLocation: true,
+                        costPerKm: true,
                         isAvailable: true,
                     },
                 },

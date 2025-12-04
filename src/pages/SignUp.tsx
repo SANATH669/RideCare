@@ -17,10 +17,11 @@ const SignUp = () => {
         // Driver specific
         vehicleDetails: "",
         licenseNumber: "",
+        location: "",
+        costPerKm: "",
         // Mechanic specific
         shopName: "",
         servicesOffered: "",
-        location: "",
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -138,6 +139,33 @@ const SignUp = () => {
                                             onChange={handleChange}
                                             className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                                             placeholder="DL12345678"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium mb-2 text-foreground">
+                                            Location
+                                        </label>
+                                        <input
+                                            name="location"
+                                            type="text"
+                                            required
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                                            placeholder="Enter your current location"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium mb-2 text-foreground">
+                                            Cost per km
+                                        </label>
+                                        <input
+                                            name="costPerKm"
+                                            type="number"
+                                            step="0.01"
+                                            required
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 rounded-lg bg-muted border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                                            placeholder="Enter cost per kilometer"
                                         />
                                     </div>
                                 </>

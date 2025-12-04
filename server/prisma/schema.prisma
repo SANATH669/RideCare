@@ -38,6 +38,7 @@ model DriverProfile {
   vehicleDetails  String
   licenseNumber   String
   currentLocation String?
+  costPerKm       Float?
   isAvailable     Boolean @default(true)
 }
 

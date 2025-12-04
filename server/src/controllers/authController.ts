@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 const prisma = new PrismaClient();
 
 export const register = async (req: Request, res: Response) => {
-    const { email, password, role, name, phone, vehicleDetails, licenseNumber, shopName, servicesOffered, location } = req.body;
+    const { email, password, role, name, phone, vehicleDetails, licenseNumber, shopName, servicesOffered, location, costPerKm } = req.body;
 
     try {
         const existingUser = await prisma.user.findUnique({ where: { email } });
@@ -33,6 +33,7 @@ export const register = async (req: Request, res: Response) => {
                     vehicleDetails: vehicleDetails || 'Unknown Vehicle',
                     licenseNumber: licenseNumber || 'Unknown License',
                     currentLocation: location || 'Unknown Location',
+                    costPerKm: costPerKm ? parseFloat(costPerKm) : null,
                 },
             });
         } else if (role === 'MECHANIC') {
