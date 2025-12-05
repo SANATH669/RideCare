@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { MapPin, Navigation, Car, Phone, MapPinned, DollarSign } from "lucide-react";
+import { MapPin, Navigation, Car, Phone, MapPinned, IndianRupee } from "lucide-react";
 import api from "@/lib/api";
 import { toast } from "sonner";
 
@@ -217,8 +217,8 @@ const BookRide = () => {
 
                               {driver.driverProfile.costPerKm && (
                                 <div className="flex items-center gap-2 text-muted-foreground">
-                                  <DollarSign className="w-4 h-4 text-green-500" />
-                                  <span className="font-semibold">${driver.driverProfile.costPerKm}/km</span>
+                                  <IndianRupee className="w-4 h-4 text-green-500" />
+                                  <span className="font-semibold">₹{driver.driverProfile.costPerKm}/km</span>
                                 </div>
                               )}
                             </>
