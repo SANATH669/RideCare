@@ -60,7 +60,7 @@ const BookRide = () => {
         ...formData,
         driverId,
       });
-      toast.success("Ride booked successfully!");
+      toast.success("Ride request sent to driver! Waiting for confirmation.");
       navigate("/dashboard");
     } catch (error: any) {
       toast.error(error.response?.data?.message || "Booking failed");

@@ -47,6 +47,21 @@ const DriverDashboard = () => {
         }
     };
 
+    const handleRejectRide = async (rideId: string) => {
+        try {
+            await api.patch(`/rides/${rideId}/status`, { status: "CANCELLED" });
+            // Refresh data
+            const [availableRes, myRidesRes] = await Promise.all([
+                api.get("/rides/available"),
+                api.get("/rides"),
+            ]);
+            setAvailableRides(availableRes.data);
+            setMyRides(myRidesRes.data);
+        } catch (error) {
+            console.error("Failed to reject ride", error);
+        }
+    };
+
     const acceptedRides = myRides.filter((ride) => ride.status === "ACCEPTED");
     const completedRides = myRides.filter((ride) => ride.status === "COMPLETED");
 
@@ -122,13 +137,22 @@ const DriverDashboard = () => {
                                                 <p className="text-sm text-muted-foreground">
                                                     {ride.passenger?.name || "Unknown"} • ₹{ride.price || "TBD"}
                                                 </p>
-                                                <Button
-                                                    variant="hero"
-                                                    size="sm"
-                                                    onClick={() => handleAcceptRide(ride.id)}
-                                                >
-                                                    Accept
-                                                </Button>
+                                                <div className="flex gap-2">
+                                                    <Button
+                                                        variant="outline"
+                                                        size="sm"
+                                                        onClick={() => handleRejectRide(ride.id)}
+                                                    >
+                                                        Reject
+                                                    </Button>
+                                                    <Button
+                                                        variant="hero"
+                                                        size="sm"
+                                                        onClick={() => handleAcceptRide(ride.id)}
+                                                    >
+                                                        Accept
+                                                    </Button>
+                                                </div>
                                             </div>
                                         </div>
                                     ))

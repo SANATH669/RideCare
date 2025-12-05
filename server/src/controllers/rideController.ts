@@ -17,7 +17,7 @@ export const createRide = async (req: any, res: Response) => {
                 type,
                 scheduledTime: scheduledTime ? new Date(scheduledTime) : null,
                 price: price || 0,
-                status: driverId ? 'ACCEPTED' : 'PENDING',
+                status: 'PENDING', // Always create as PENDING for driver to accept
             },
         });
         res.status(201).json(ride);
@@ -51,8 +51,12 @@ export const getAvailableRides = async (req: any, res: Response) => {
     }
 
     try {
+        // Show rides specifically requested for this driver (Option 1: Direct Assignment)
         const rides = await prisma.ride.findMany({
-            where: { status: 'PENDING' },
+            where: {
+                status: 'PENDING',
+                driverId: req.user.id, // Only show rides requested for this driver
+            },
             include: { passenger: { select: { name: true, phone: true } } },
         });
         res.json(rides);
